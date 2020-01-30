@@ -1,6 +1,10 @@
 package com.ijays.koinsample
 
 import android.app.Application
+import com.ijays.koinsample.di.applicationModule
+import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
+import org.koin.core.context.startKoin
 import java.lang.NullPointerException
 
 /**
@@ -18,6 +22,15 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         sInstance = this
+
+        startKoin {
+            // use Koin Andorid Logger
+            androidLogger()
+            // declare Android context
+            androidContext(this@App)
+            // declare modules to use
+            modules(listOf(applicationModule))
+        }
 
     }
 }

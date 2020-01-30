@@ -5,17 +5,30 @@ import com.ijays.koinsample.model.Data
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import org.koin.core.KoinComponent
+import org.koin.core.inject
 
 /**
  * Created by ijays on 2020/1/29.
  */
-object AppRepository {
+object AppRepository : KoinComponent {
+    /**
+     * 使用默认方式初始化 database
+     */
+//    private val database: AppDatabase by lazy {
+//        AppDatabase.getInstance()
+//    }
+
+    /**
+     * 使用 Koin 进行注入
+     */
+    private val database: AppDatabase by inject()
 
 
     fun save2DB(data: Data, callback: (String) -> Unit) {
         Observable.just(data)
             .map {
-                AppDatabase.getInstance().dataDao().insertData(data)
+                database.dataDao().insertData(data)
                 data
             }.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -27,7 +40,7 @@ object AppRepository {
     }
 
     fun queryFromDB(): Observable<List<Data>> {
-        return AppDatabase.getInstance().dataDao().queryDataFromDB()
+        return database.dataDao().queryDataFromDB()
     }
 
 
