@@ -7,10 +7,8 @@ import com.google.android.material.snackbar.Snackbar
 import com.ijays.koinsample.MainContract
 import com.ijays.koinsample.R
 import com.ijays.koinsample.model.Data
-import com.ijays.koinsample.presenter.MainPresenter
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
-import org.koin.android.ext.android.inject
 import org.koin.androidx.scope.currentScope
 import org.koin.core.parameter.parametersOf
 
@@ -26,7 +24,10 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     /**
      * 使用 Koin 依赖注入, mainPresenter 仅在 MainActivity 的生命周期内有效
      */
-    private val mainPresenter: MainContract.Presenter<Data> by currentScope.inject { parametersOf(this) }
+    private val mainPresenter: MainContract.Presenter<Data> by currentScope.inject {
+        parametersOf(this)
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

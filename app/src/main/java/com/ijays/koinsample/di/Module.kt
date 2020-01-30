@@ -20,6 +20,4 @@ val applicationModule = module(override = true) {
     single {
         AppDatabase.getInstance()
     }
-
-
 }
