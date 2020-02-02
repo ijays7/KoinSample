@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/ijays7/KoinSample.svg?style=svg)](https://circleci.com/gh/ijays7/KoinSample)
+
 此项目演示如何使用 [koin](https://github.com/InsertKoinIO/koin) 进行依赖注入，目前采用的是 MVP + RxJava 的架构。
 
 ## 什么是koin
