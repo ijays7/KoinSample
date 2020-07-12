@@ -14,8 +14,8 @@ object Versions {
 
     const val buildTools = "29.0.2"
 
-    const val gradle = "3.6.0-rc02"
-    const val kotlin = "1.3.61"
+    const val gradle = "4.0.0"
+    const val kotlin = "1.3.72"
 
     const val appcompat = "1.1.0"
     const val design = "1.0.0"
