@@ -12,14 +12,17 @@ import com.ijays.koinsample.R
 import com.ijays.koinsample.data.LoggerLocalDataSource
 import com.ijays.koinsample.navigator.AppNavigator
 import com.ijays.koinsample.navigator.Screens
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 /**
  * Created by ijays on 2020/7/14.
  */
+@AndroidEntryPoint
 class ButtonsFragment : Fragment() {
 
-    private lateinit var logger: LoggerLocalDataSource
-    private lateinit var navigator: AppNavigator
+    @Inject lateinit var logger: LoggerLocalDataSource
+    @Inject lateinit var navigator: AppNavigator
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,17 +32,19 @@ class ButtonsFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_buttons, container, false)
     }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-
-        populateFields(context)
-    }
-
-    private fun populateFields(context: Context) {
-        logger = (context.applicationContext as App).serviceLocator.loggerLocalDataSource
-
-        navigator = (context.applicationContext as App).serviceLocator.provideNavigator(activity!!)
-    }
+    //region Replaced with Hilt
+//    override fun onAttach(context: Context) {
+//        super.onAttach(context)
+//
+//        populateFields(context)
+//    }
+//
+//    private fun populateFields(context: Context) {
+//        logger = (context.applicationContext as App).serviceLocator.loggerLocalDataSource
+//
+//        navigator = (context.applicationContext as App).serviceLocator.provideNavigator(activity!!)
+//    }
+    //endregion
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         view.findViewById<Button>(R.id.button1).setOnClickListener {

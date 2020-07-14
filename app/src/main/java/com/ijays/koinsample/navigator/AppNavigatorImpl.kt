@@ -4,11 +4,12 @@ import androidx.fragment.app.FragmentActivity
 import com.ijays.koinsample.R
 import com.ijays.koinsample.ui.ButtonsFragment
 import com.ijays.koinsample.ui.LogsFragment
+import javax.inject.Inject
 
 /**
  * Created by ijays on 2020/7/14.
  */
-class AppNavigatorImpl(private val activity: FragmentActivity) : AppNavigator {
+class AppNavigatorImpl @Inject constructor(private val activity: FragmentActivity) : AppNavigator {
 
     override fun navigateTo(screen: Screens) {
         val fragment = when (screen) {

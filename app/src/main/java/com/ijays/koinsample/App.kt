@@ -17,11 +17,8 @@ class App : Application() {
         }
     }
 
-    lateinit var serviceLocator: ServiceLocator
-
     override fun onCreate() {
         super.onCreate()
         sInstance = this
-        serviceLocator = ServiceLocator(applicationContext)
     }
 }
