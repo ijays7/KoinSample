@@ -1,11 +1,13 @@
 package com.ijays.koinsample
 
 import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
 import java.lang.NullPointerException
 
 /**
  * Created by ijays on 2020/1/29.
  */
+@HiltAndroidApp
 class App : Application() {
     companion object {
         private var sInstance: App? = null

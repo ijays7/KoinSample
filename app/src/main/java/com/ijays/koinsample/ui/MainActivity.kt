@@ -6,7 +6,9 @@ import com.ijays.koinsample.App
 import com.ijays.koinsample.R
 import com.ijays.koinsample.navigator.AppNavigator
 import com.ijays.koinsample.navigator.Screens
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navigator: AppNavigator

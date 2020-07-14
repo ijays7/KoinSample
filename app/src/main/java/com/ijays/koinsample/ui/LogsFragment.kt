@@ -14,14 +14,19 @@ import com.ijays.koinsample.R
 import com.ijays.koinsample.data.Log
 import com.ijays.koinsample.data.LoggerLocalDataSource
 import com.ijays.koinsample.util.DateFormatter
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 /**
  * Created by ijays on 2020/7/14.
  */
+@AndroidEntryPoint
 class LogsFragment : Fragment() {
 
-    private lateinit var logger: LoggerLocalDataSource
-    private lateinit var dateFormatter: DateFormatter
+    @Inject
+    lateinit var logger: LoggerLocalDataSource
+    @Inject
+    lateinit var dateFormatter: DateFormatter
 
     private lateinit var recyclerView: RecyclerView
 
@@ -39,17 +44,19 @@ class LogsFragment : Fragment() {
         }
     }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-
-        populateFields(context)
-    }
-
-    private fun populateFields(context: Context) {
-        logger = (context.applicationContext as App).serviceLocator.loggerLocalDataSource
-        dateFormatter =
-            (context.applicationContext as App).serviceLocator.provideDateFormatter()
-    }
+    //region Replaced with Hilt Injection
+//    override fun onAttach(context: Context) {
+//        super.onAttach(context)
+//
+//        populateFields(context)
+//    }
+//
+//    private fun populateFields(context: Context) {
+//        logger = (context.applicationContext as App).serviceLocator.loggerLocalDataSource
+//        dateFormatter =
+//            (context.applicationContext as App).serviceLocator.provideDateFormatter()
+//    }
+    //endregion
 
     override fun onResume() {
         super.onResume()
