@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     compileSdkVersion Versions.compileSdk
@@ -48,12 +49,8 @@ dependencies {
     implementation Androidx.constraintLayout
     implementation Androidx.ktx
 
-    // Koin AndroidX Scope features
-    implementation Libraries.koinAndroid
-    // Koin AndroidX ViewModel features
-    implementation Libraries.koinViewModel
-    // Koin AndroidX Fragment features
-    implementation Libraries.koinFragment
+    implementation Libraries.hiltAndroid
+    kapt Libraries.hiltCompiler
 
     implementation Libraries.room
     kapt Libraries.roomKapt

@@ -34,6 +34,8 @@ object Versions {
     const val androidx_test = "1.1.1"
 
     const val espresso = "3.2.0"
+
+    const val hilt = "2.28-alpha"
 }
 
 object Libraries {
@@ -48,6 +50,9 @@ object Libraries {
     const val room = "androidx.room:room-runtime:${Versions.room}"
     const val roomKapt = "androidx.room:room-compiler:${Versions.room}"
     const val roomRxjava2 = "androidx.room:room-rxjava2:${Versions.room}"
+
+    const val hiltAndroid = "com.google.dagger:hilt-android:${Versions.hilt}"
+    const val hiltCompiler = "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
 }
 
 object Androidx {
